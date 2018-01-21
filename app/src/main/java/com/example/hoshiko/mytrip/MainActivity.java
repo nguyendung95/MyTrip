@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     //switchToMyPlacesFragment();
                     break;
                 case R.id.action_favorites:
-                    //switchToFavoritesFragment();
+                    switchToFavoritesFragment();
                     break;
 
                 case R.id.action_settings:
@@ -53,13 +53,19 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.bottom_navigation);
 
         //Helps Navigation Bar could Items display all Icon with text
-        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
+       BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
         //
         bottomNavigationView.setOnNavigationItemSelectedListener(mBottomNavigation);
 
     }
 
     public void switchToPopularFragment() {
+        PopularFragment popularFragment = new PopularFragment();
+        FragmentManager manager = getFragmentManager();
+        manager.beginTransaction().replace(R.id.first_fragment, popularFragment).commit();
+    }
+
+    public void switchToFavoritesFragment() {
         PopularFragment popularFragment = new PopularFragment();
         FragmentManager manager = getFragmentManager();
         manager.beginTransaction().replace(R.id.first_fragment, popularFragment).commit();
